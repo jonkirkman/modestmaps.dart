@@ -1,0 +1,6 @@
+name: modestmaps_dart
+description: A sample web application
+dependencies:
+  browser: any
+  vector_math:
+    git: https://github.com/johnmccutchan/vector_math.git
