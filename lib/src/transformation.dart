@@ -5,21 +5,20 @@ class Transformation {
   // this is basically a 3D matrix
   // perhaps I should use `mat3`
   num ax = 0, ay = 0, at = 0,
-         bx = 0, by = 0, bt = 0,
-         cx = 0, cy = 0, ct = 0;
+      bx = 0, by = 0, bt = 0,
+      cx = 0, cy = 0, ct = 0;
 
 	Transformation(this.ax, this.bx, this.cx, this.ay, this.by, this.cy);
 
 
 	Point transform(Point point) {
-	  return new Point(this.ax * point.x + this.bx * point.y + this.cx,
-        this.ay * point.x + this.by * point.y + this.cy);
+	  return new Point(ax * point.x + bx * point.y + cx, ay * point.x + by * point.y + cy);
 	}
 
 	Point untransform(Point point) {
 	  return new Point(
-	      (point.x * this.by - point.y * this.bx - this.cx * this.by + this.cy * this.bx) / (this.ax * this.by - this.ay * this.bx),
-        (point.x * this.ay - point.y * this.ax - this.cx * this.ay + this.cy * this.ax) / (this.bx * this.ay - this.by * this.ax));
+	    (point.x * by - point.y * bx - cx * by + cy * bx) / (ax * by - ay * bx),
+	    (point.x * ay - point.y * ax - cx * ay + cy * ax) / (bx * ay - by * ax));
 	}
 
 

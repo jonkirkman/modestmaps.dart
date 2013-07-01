@@ -8,9 +8,9 @@ class Location {
 
   Location(this.lat, this.lon);
 
-	String toString() => "(${this.lat.toStringAsFixed(3)}, ${this.lat.toStringAsFixed(3)})";
+	String toString() => "(${lat.toStringAsFixed(3)}, ${lat.toStringAsFixed(3)})";
 
-	Location copy() => new Location(this.lat, this.lon);
+	Location copy() => new Location(lat, lon);
 
 	// returns approximate distance between start and end locations
 	//

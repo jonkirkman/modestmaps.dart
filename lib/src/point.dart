@@ -6,9 +6,9 @@ class Point {
 
   Point(this.x, this.y);
 
-  String toString() => "(${this.x.toStringAsFixed(3)}, ${this.y.toStringAsFixed(3)})";
+  String toString() => "(${x.toStringAsFixed(3)}, ${y.toStringAsFixed(3)})";
 
-  Point copy() => new Point(this.x, this.y);
+  Point copy() => new Point(x, y);
 
   // Get the euclidean distance between two points
   static num distance(Point p1, Point p2) {
