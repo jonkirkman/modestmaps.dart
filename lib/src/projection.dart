@@ -39,11 +39,13 @@ abstract class Projection {
 }
 
 class LinearProjection extends Projection {
+  LinearProjection(): super(this.zoom, this.transformation);
 	Point rawProject(Point point) => point.copy();
 	Point rawUnproject(Point point) => point.copy();
 }
 
 class MercatorProjection extends Projection {
+  MercatorProjection(): super(this.zoom, this.transformation);
 	Point rawProject(Point point) => new Point(point.x, log(tan(0.25 * PI + 0.5 * point.y)));
 	Point rawUnproject(Point point) => new Point(point.x, 2 * atan(pow(E, point.y)) - 0.5 * PI);
 }
