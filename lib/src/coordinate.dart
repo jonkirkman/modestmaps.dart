@@ -9,7 +9,7 @@ part of modestmaps;
 // can be used to find the actual tile that contains the point.
 
 class Coordinate {
-  double row, column, zoom;
+  num row, column, zoom;
 
   Coordinate(this.row, this.column, this.zoom);
 

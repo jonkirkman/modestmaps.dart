@@ -7,7 +7,7 @@ part of modestmaps;
 // south, east and west bounds.
 
 class Extent {
-	double north, south, east, west;
+	num north, south, east, west;
 
 	Extent(this.north, this.south, this.east, this.west);
 

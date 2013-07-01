@@ -2,7 +2,7 @@
 part of modestmaps;
 
 class Location {
-	double lat = 0, lon = 0;
+	num lat = 0, lon = 0;
 
 	static final double deg2rad = PI / 180;
 

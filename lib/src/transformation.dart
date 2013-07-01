@@ -4,7 +4,7 @@ part of modestmaps;
 class Transformation {
   // this is basically a 3D matrix
   // perhaps I should use `mat3`
-  double ax = 0, ay = 0, at = 0,
+  num ax = 0, ay = 0, at = 0,
          bx = 0, by = 0, bt = 0,
          cx = 0, cy = 0, ct = 0;
 
