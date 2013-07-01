@@ -9,7 +9,7 @@ part of modestmaps;
 //  * `location` (required MM.Location)
 //      Location for map to show
 //  * `zoom` (required number)
-Map mapByCenterZoon() {}
+Map mapByCenterZoom() {}
 
 // Instance of a map intended for drawing to a div.
 //
