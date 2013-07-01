@@ -17,7 +17,7 @@ part of modestmaps;
 class Map {
 
 	// DOM Element
-	var parent;
+	Element parent;
 	// MM.Point with x/y size of parent element
 	var dimensions;
 	// MM.Projection of first known layer
@@ -37,9 +37,13 @@ class Map {
 	// Boolean, true if we have a window resize listener
 	var autoSize;
 
-	String toString() {
-		return 'Map( parent.id )';
+	Map(this.parent) {
+	  parent.appendHtml("<h3>Oh hi.</h3>");
 	}
 
-	
+	String toString() {
+		return 'Map( $parent.id )';
+	}
+
+
 }

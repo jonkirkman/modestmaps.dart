@@ -8,6 +8,8 @@ void main() {
 
   var blah = new mm.Point(0,0);
   print(blah);
+
+  var mappy = new mm.Map(query("#mappy"));
 }
 
 void reverseText(MouseEvent event) {
