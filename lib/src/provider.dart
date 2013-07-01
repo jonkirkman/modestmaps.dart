@@ -122,19 +122,19 @@ class Template extends MapProvider {
     var base = template;
 
     if (hasSubdomains) {
-      var index = parseInt(coord.zoom + coord.row + coord.column, 10) % subdomains.length;
+      var index = (coord.zoom + coord.row + coord.column) % subdomains.length;
       base.replaceFirst('{S}', subdomains[index]);
     }
 
     if (isQuadKey) {
       base
-          .replaceFirst('{Z}', coord.zoom.toFixed(0))
+          .replaceFirst('{Z}', coord.zoom.floor())
           .replaceFirst('{Q}', quadKey(coord.row, coord.column, coord.zoom));
     } else {
       base
-          .replaceFirst('{Z}', coord.zoom.toFixed(0))
-          .replaceFirst('{X}', coord.column.toFixed(0))
-          .replaceFirst('{Y}', coord.row.toFixed(0));
+          .replaceFirst('{Z}', coord.zoom.floor())
+          .replaceFirst('{X}', coord.column.round())
+          .replaceFirst('{Y}', coord.row.round());
     }
 
     return base;
