@@ -6,7 +6,6 @@ library modestmaps;
 
 import 'dart:html';
 import 'dart:math';
-import 'dart:uri';
 import 'package:vector_math/vector_math.dart';
 
 part 'src/utils.dart';
