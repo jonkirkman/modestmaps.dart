@@ -20,7 +20,7 @@ abstract class MapProvider {
 
 	MapProvider(this._getTile);
 
-	String getTileUrl(Coordinate coordinate);
+	Uri getTileUrl(Coordinate coordinate);
 
 	void getTile(Coordinate coordinate);
 
@@ -86,8 +86,10 @@ abstract class MapProvider {
 class Template extends MapProvider {
 
 	bool isQuadKey, hasSubdomains;
+	String urlTemplate;
+	List<String> subdomains;
 
-	Template(String urlTemplate, List<String> subdomains) {
+	Template(this.urlTemplate, this.subdomains) {
      isQuadKey = urlTemplate.contains(new RegExp(r'{(Q|quadkey)}'));
     // replace Microsoft style substitution strings
 	  if(isQuadKey) {
@@ -97,14 +99,14 @@ class Template extends MapProvider {
        .replaceAll('{quadkey}', '{Q}');
 	  }
 
-    hasSubdomains = (?subdomains && template.contains("{S}"));
+    hasSubdomains = (subdomains.isNotEmpty && urlTemplate.contains("{S}"));
 	}
 
-	Uri getTile(coord) {
+	Uri getTile(Coordinate coord) {
     return this.getTileUrl(coord);
   }
 
-	num quadKey(row, column, zoom) {
+	num quadKey(num row, num column, num zoom) {
 	  var key = 0;
     for (var i = 1; i <= zoom; i++) {
       key += (((row >> zoom - i) & 1) << 1) | ((column >> zoom - i) & 1);
@@ -113,13 +115,13 @@ class Template extends MapProvider {
 	}
 
   Uri getTileUrl(Coordinate coordinate) {
-    var coord = this.sourceCoordinate(coordinate);
+    var coord = sourceCoordinate(coordinate);
 
     if (!coord) {
       return null;
     }
 
-    var base = template;
+    var base = urlTemplate;
 
     if (hasSubdomains) {
       var index = (coord.zoom + coord.row + coord.column) % subdomains.length;
@@ -133,11 +135,11 @@ class Template extends MapProvider {
     } else {
       base
           .replaceFirst('{Z}', coord.zoom.floor())
-          .replaceFirst('{X}', coord.column.round())
-          .replaceFirst('{Y}', coord.row.round());
+          .replaceFirst('{X}', coord.column.round().toString())
+          .replaceFirst('{Y}', coord.row.round().toString());
     }
 
-    return base;
+    return Uri.parse(base);
   }
 }
 
