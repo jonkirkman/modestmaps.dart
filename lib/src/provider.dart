@@ -16,9 +16,8 @@ abstract class MapProvider {
 	// but if you put Infinity in here it will screw up sourceCoordinate
 	List<Coordinate> tileLimits;
 	String tileUrl;
-  Function _getTile;
 
-	MapProvider(this._getTile);
+	MapProvider();
 
 	Uri getTileUrl(Coordinate coordinate);
 
@@ -106,7 +105,7 @@ class Template extends MapProvider {
     return this.getTileUrl(coord);
   }
 
-	num quadKey(num row, num column, num zoom) {
+	num quadKey(int row, int column, int zoom) {
 	  var key = 0;
     for (var i = 1; i <= zoom; i++) {
       key += (((row >> zoom - i) & 1) << 1) | ((column >> zoom - i) & 1);
@@ -131,7 +130,7 @@ class Template extends MapProvider {
     if (isQuadKey) {
       base
           .replaceFirst('{Z}', coord.zoom.floor())
-          .replaceFirst('{Q}', quadKey(coord.row, coord.column, coord.zoom));
+          .replaceFirst('{Q}', quadKey(coord.row.toInt(), coord.column.toInt(), coord.zoom.toInt()));
     } else {
       base
           .replaceFirst('{Z}', coord.zoom.floor())
