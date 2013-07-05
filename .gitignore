@@ -1,2 +1,4 @@
 *.timestamp
 packacges/*
+packages
+pubspec.lock
