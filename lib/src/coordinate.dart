@@ -15,11 +15,9 @@ class Coordinate {
 
 	// The coordinate as "(row, col, @zoom)"
 	String toString() {
-	  return """
-      (${row.toStringAsFixed(3)}, 
-      ${column.toStringAsFixed(3)}, 
-      @${zoom.toStringAsFixed(3)})
-      """;
+	  return "(${row.toStringAsFixed(3)}, "
+	      "${column.toStringAsFixed(3)} "
+	      "@${zoom.toStringAsFixed(3)})";
 	}
 
 	// Quickly generate a string representation of this coordinate to
@@ -55,22 +53,22 @@ class Coordinate {
 	}
 
 	// Move this coordinate up by `dist` coordinates
-	Coordinate up(num adjust) {
+	Coordinate up([num adjust = 1]) {
 	  return new Coordinate(row - adjust, column, zoom);
 	}
 
 	// Move this coordinate right by `dist` coordinates
-	Coordinate right(num adjust) {
+	Coordinate right([num adjust = 1]) {
 	  return new Coordinate(row, column + adjust, zoom);
 	}
 
 	// Move this coordinate down by `dist` coordinates
-	Coordinate down(num adjust) {
+	Coordinate down([num adjust = 1]) {
 	  return new Coordinate(row + adjust, column, zoom);
 	}
 
 	// Move this coordinate left by `dist` coordinates
-	Coordinate left(num adjust) {
+	Coordinate left([num adjust = 1]) {
 	  return new Coordinate(row, column - adjust, zoom);
 	}
 }
