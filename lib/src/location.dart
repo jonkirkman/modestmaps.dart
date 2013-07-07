@@ -8,7 +8,7 @@ class Location {
 
   Location(this.lat, this.lon);
 
-	String toString() => "(${lat.toStringAsFixed(3)}, ${lat.toStringAsFixed(3)})";
+	String toString() => "(${lat.toStringAsFixed(3)}, ${lon.toStringAsFixed(3)})";
 
 	Location copy() => new Location(lat, lon);
 
@@ -47,9 +47,9 @@ class Location {
     }
 
     final num lat1 = l1.lat * deg2rad,
-        lon1 = l1.lon * deg2rad,
-        lat2 = l2.lat * deg2rad,
-        lon2 = l2.lon * deg2rad;
+              lon1 = l1.lon * deg2rad,
+              lat2 = l2.lat * deg2rad,
+              lon2 = l2.lon * deg2rad;
 
     num d = 2 * asin( sqrt(
       pow(sin((lat1 - lat2) * 0.5), 2) +
@@ -73,9 +73,9 @@ class Location {
 	// * FIXME: bearing is not constant along significant great circle arcs.
 	static double bearing(Location l1, Location l2) {
     final num lat1 = l1.lat * deg2rad,
-        lon1 = l1.lon * deg2rad,
-        lat2 = l2.lat * deg2rad,
-        lon2 = l2.lon * deg2rad;
+              lon1 = l1.lon * deg2rad,
+              lat2 = l2.lat * deg2rad,
+              lon2 = l2.lon * deg2rad;
 
     num result = atan2(
           sin(lon1 - lon2) * cos(lat2),
