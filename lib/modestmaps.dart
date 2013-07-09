@@ -12,7 +12,7 @@ part 'src/utils.dart';
 part 'src/point.dart';
 part 'src/coordinate.dart';
 part 'src/location.dart';
-part 'src/extents.dart';
+part 'src/extent.dart';
 part 'src/transformation.dart';
 part 'src/projection.dart';
 part 'src/provider.dart'; // parse tile-provider URLs, etc.
