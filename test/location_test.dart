@@ -20,14 +20,9 @@ main() {
 
     test('can be copied', () {
       var loc = new MM.Location(0, 1);
-
-      expect( loc.lon, equals(1) );
-      expect( loc.lat, equals(0) );
-      
       var cp = loc.copy();
 
-      expect( cp.lon, equals(1) );
-      expect( cp.lat, equals(0) );
+      expect( cp, equals(loc) );
     });
 
     test('can calculate distance to another location', () {
@@ -43,6 +38,7 @@ main() {
 
       expect( MM.Location.interpolate(a, b, 0.5).lat, closeTo(0, 0.005) );
       expect( MM.Location.interpolate(a, b, 0.5).lon, closeTo(5.5, 0.005) );
+      // TODO: Test interpolatation where both lat & lon values differ
     });
 
     test('can produce a bearing between points', () {

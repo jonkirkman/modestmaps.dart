@@ -16,7 +16,7 @@ main() {
       expect(p.toString(), equals('(0.000, 0.000)'));
     });
 
-    skip_test('can yield a copy', () {
+    test('can yield a copy', () {
       var p = new MM.Point(0, 0);
       expect(p.copy(), equals(p));
     });
