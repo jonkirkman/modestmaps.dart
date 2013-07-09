@@ -6,6 +6,8 @@ class Point {
 
   Point(this.x, this.y);
 
+  bool operator ==(other) => identical(x, other.x) && identical(y, other.y);
+
   String toString() => "(${x.toStringAsFixed(3)}, ${y.toStringAsFixed(3)})";
 
   Point copy() => new Point(x, y);
