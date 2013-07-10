@@ -39,11 +39,17 @@ main() {
     });
 
     test('knows when it contains a location', () {
-      var a = new MM.Location(0, 0);
-      var b = new MM.Location(0, 90);
-
+      var a = new MM.Location(1, 1);
       expect( ext.containsLocation(a), isTrue );
+
+      var b = new MM.Location(0, 90);
       expect( ext.containsLocation(b), isFalse );
+
+      var c = new MM.Location(20, -20);
+      expect( ext.containsLocation(c), isFalse );
+
+      var d = new MM.Location(-9, -9);
+      expect( ext.containsLocation(d), isTrue );
     });
 
   });

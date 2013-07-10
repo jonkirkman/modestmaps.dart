@@ -80,8 +80,8 @@ class Extent {
 
   // determine if a location is within this extent
   bool containsLocation(Location loc) {
-    return loc.lat >= south &&
-           loc.lat <= north &&
+    return loc.lat <= south &&
+           loc.lat >= north &&
            loc.lon >= west &&
            loc.lon <= east;
   }
