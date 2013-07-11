@@ -1,8 +1,6 @@
+part of modestmaps_test;
 
-import 'package:unittest/unittest.dart';
-import 'package:modestmaps_dart/modestmaps.dart' as MM;
-
-main() {
+coordinate_test() {
   group('Coordinate', () {
 
     var coordinate;
