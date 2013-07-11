@@ -2,6 +2,7 @@
 library modestmaps_test;
 
 import 'package:unittest/unittest.dart';
+import 'package:unittest/vm_config.dart';
 import 'package:modestmaps_dart/modestmaps.dart' as MM;
 
 
@@ -14,6 +15,8 @@ part 'src/transformation_test.dart';
 // part 'src/provider_test.dart';
 
 main() {
+  useVMConfiguration();
+
   point_test();
   coordinate_test();
   location_test();
