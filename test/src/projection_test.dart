@@ -19,10 +19,12 @@ projection_test() {
     });
 
     test('linear projects do not change normal points', () {
-      expect( l.project({'x': 10, 'y': 10}).x, equals(10) );
-      expect( l.project({'x': 10, 'y': 10}).y, equals(10) );
-      expect( l.unproject({'x': 10, 'y': 10}).x, equals(10) );
-      expect( l.unproject({'x': 10, 'y': 10}).y, equals(10) );
+      var p = new MM.Point(10, 10);
+
+      expect( l.project(p).x, equals(10) );
+      expect( l.project(p).y, equals(10) );
+      expect( l.unproject(p).x, equals(10) );
+      expect( l.unproject(p).y, equals(10) );
     });
 
     test('is accurate up to 3 decimals', () {
@@ -34,7 +36,7 @@ projection_test() {
       expect( c2.zoom, equals(10) );
     });
 
-    test('coordinatelocation to work', () {
+    test('can translate a Coordinate to a Location', () {
       var l2 = m.coordinateLocation(new MM.Coordinate(0.696, -2.129, 10));
       expect( l2.lat, closeTo(37.001, 0.001) );
       expect( l2.lon, closeTo(-121.983, 0.001) );
