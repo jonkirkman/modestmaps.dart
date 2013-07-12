@@ -8,7 +8,7 @@ class Location {
 
   Location(this.lat, this.lon);
 
-  bool operator ==(other) => identical(lat, other.lat) && identical(lon, other.lon);
+  bool operator ==(other) => (lat == other.lat) && (lon == other.lon);
 
   String toString() => "(${lat.toStringAsFixed(3)}, ${lon.toStringAsFixed(3)})";
 

@@ -23,6 +23,16 @@ location_test() {
       expect( cp, equals(loc) );
     });
 
+    test('understands equality with other Points', () {
+      var a = new MM.Location( -20,  0);
+      var b = new MM.Location( -20,  0.00);
+      var c = new MM.Location( -20, -0.00);
+
+      expect(b, equals(a));
+      expect(c, equals(a));
+      expect(c, equals(b));
+    });
+
     test('can calculate distance to another location', () {
       var a = new MM.Location(0, 1);
       var b = new MM.Location(0, 10);
