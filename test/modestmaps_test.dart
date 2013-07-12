@@ -11,7 +11,7 @@ part 'src/coordinate_test.dart';
 part 'src/location_test.dart';
 part 'src/extent_test.dart';
 part 'src/transformation_test.dart';
-// part 'src/projection_test.dart';
+part 'src/projection_test.dart';
 // part 'src/provider_test.dart';
 
 main() {
@@ -22,4 +22,5 @@ main() {
   location_test();
   extent_test();
   transformation_test();
+  projection_test();
 }
