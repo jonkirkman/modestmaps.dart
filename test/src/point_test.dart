@@ -19,6 +19,16 @@ point_test() {
       expect(p.copy(), equals(p));
     });
 
+    test('understands equality with other Points', () {
+      var a = new MM.Point(    0, 10);
+      var b = new MM.Point( 0.00, 10);
+      var c = new MM.Point(-0.00, 10);
+
+      expect(b, equals(a));
+      expect(c, equals(a));
+      expect(c, equals(b));
+    });
+
     test('correctly computes distance to another point', () {
       var p = new MM.Point(0,0);
       var q = new MM.Point(0, 10);
